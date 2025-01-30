@@ -2,8 +2,9 @@ import { useState } from "react";
 interface Props {
   cities: string[];
   heading: string;
+  onSelectItem: (item: string) => void;
 }
-function ListGroup({ cities, heading }: Props) {
+function ListGroup({ cities, heading, onSelectItem }: Props) {
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
@@ -21,6 +22,7 @@ function ListGroup({ cities, heading }: Props) {
             }
             onClick={() => {
               setSelectedIndex(index);
+              onSelectItem(city);
             }}
             key={city}
           >
