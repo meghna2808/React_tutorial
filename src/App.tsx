@@ -6,19 +6,21 @@ import Button from "./components/Button";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [alertVisibility, setAlertVisibility] = useState(false);
   let cities = ["alwar", "Jaipur", "Delhi", "Agra", "Jaisalmer"];
   const handleSelectItem = (item: string) => {
     console.log(item);
   };
   const handleClick = () => {
-    console.log("Button pressed");
+    setAlertVisibility(true);
   };
   return (
     <div className="App">
       <h2>
-        <Button onClick={handleClick} color="primary">
-          Hello
-        </Button>
+        <Button onClick={handleClick}>Hello</Button>
+        {alertVisibility && (
+          <Alert onClose={() => setAlertVisibility(false)}>Alert Button</Alert>
+        )}
       </h2>
     </div>
   );
