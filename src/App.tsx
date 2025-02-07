@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import ListGroup from "./components/ListGroup";
 import Alert from "./components/Alert";
+import Button from "./components/Button";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -9,17 +10,15 @@ function App() {
   const handleSelectItem = (item: string) => {
     console.log(item);
   };
+  const handleClick = () => {
+    console.log("Button pressed");
+  };
   return (
     <div className="App">
       <h2>
-        {/* <ListGroup
-          cities={cities}
-          heading="Cities"
-          onSelectItem={handleSelectItem}
-        /> */}
-        <Alert>
-          Hello <span>How are u</span>
-        </Alert>
+        <Button onClick={handleClick} color="primary">
+          Hello
+        </Button>
       </h2>
     </div>
   );
